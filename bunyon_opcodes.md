@@ -4,6 +4,10 @@ The opcodes in the TI99/4A file format are fairly different from the ones in the
 
 Codes 0x00 to 0xB6 *seem* to be reserved for text messages. (If so, this means that the file format theoretically allows up to 183 text messages.)
 
+The first 19 opcodes (0xB7 to 0xC9) fill a similar function as "conditions" in the TRS-80 format.
+
+The last 44 opcodes (0xD4 to 0xFF) fill a similar function as "commands" in the TRS-80 format.
+
 | Opcode | Mnemonic | Arguments | Comment |
 | ------ | -------- | --------- | ------- |
 | 0xB7 | has | 1 | ITEM is in inventory |
