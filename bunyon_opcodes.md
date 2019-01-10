@@ -1,22 +1,26 @@
-# Bunyon opcodes
+# TI99/4A opcodes
+
+The opcodes in the TI99/4A file format are fairly different from the ones in the TRS-80 text format.
+
+Codes 0x00 to 0xB6 *seem* to be reserved for text messages. (If so, this means that the file format theoretically allows up to 183 text messages.)
 
 | Opcode | Mnemonic | Arguments | Comment |
 | ------ | -------- | --------- | ------- |
 | 0xB7 | has | 1 | ITEM is in inventory |
 | 0xB8 | here | 1 | ITEM is in room |
-| 0xB9 | avail | 1 | ITEM is available |
+| 0xB9 | avail | 1 | Is ITEM available (in inventory or in room) |
 | 0xBA | !here | 1 | ITEM is NOT in room |
 | 0xBB | !has | 1 | ITEM is NOT in inventory |
-| 0xBC | !avail | 1 | Object NOT available |
+| 0xBC | !avail | 1 | Is ITEM NOT available (in inventory or in room) |
 | 0xBD | exists | 1 | Object exists |
 | 0xBE | !exists | 1 | Object NOT exists |
 | 0xBF | in | 1 | Player is in room X |
 | 0xC0 | !in | 1 | Player not in room X |
-| 0xC1 | set | 1 | Unknown |
-| 0xC2 | !set | 1 | !set = if bitN is clear |
+| 0xC1 | set | 1 | Check if flag N is SET, return TRUE.. |
+| 0xC2 | !set | 1 | Check if flag N is NOT SET, return TRUE.. |
 | 0xC3 | something | 0 | Something |
 | 0xC4 | nothing | 0 | Nothing |
-| 0xC5 | le | 1 | Less than |
+| 0xC5 | le | 1 | Less than or equal to |
 | 0xC6 | gt | 1 | Greater than |
 | 0xC7 | eq | 1 | == |
 | 0xC8 | !moved | 1 | Not moved item? |
@@ -33,8 +37,8 @@
 | 0xD3 | --0xD3-- | 0 | Unknown |
 | 0xD4 | cls | 0 | Clear screen |
 | 0xD5 | pic | 0 | Inv |
-| 0xD6 | inv | 0 | !inv |
-| 0xD7 | !inv | 0 | Ignore |
+| 0xD6 | inv | 0 | !inv. Turn automatic inventory on |
+| 0xD7 | !inv | 0 | Ignore. Turn automatic inventory off |
 | 0xD8 | ignore | 0 | Success |
 | 0xD9 | success | 0 | TODO: fix this opcode! try? |
 | 0xDA | try | 1 | Try |
